@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GoIT JS HW 08 - Gallery</title>
+  <!-- basicLightbox CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
+  />
+  <style>
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      list-style: none;
+      padding: 0;
+      margin: 20px;
+    }
+
+    .gallery-item {
+      flex-basis: calc((100% - 64px) / 3);
+      box-sizing: border-box;
+    }
+
+    .gallery-link {
+      display: block;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .gallery-image {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-link:hover .gallery-image {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <ul class="gallery"></ul>
+
+  <!-- basicLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+  <script src="gallery.js"></script>
+</body>
+</html>
