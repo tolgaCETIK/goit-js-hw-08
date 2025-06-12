@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GoIT JS HW 08 - Gallery</title>
+  <title>GoIT JS HW 08 Gallery</title>
 
   <!-- basicLightbox CSS -->
   <link
@@ -11,47 +11,17 @@
     href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css"
   />
 
-  <style>
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      list-style: none;
-      padding: 20px;
-      margin: 0;
-    }
-
-    .gallery-item {
-      flex-basis: calc((100% - 64px) / 3);
-    }
-
-    .gallery-link {
-      display: block;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s;
-    }
-
-    .gallery-image {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.3s;
-    }
-
-    .gallery-link:hover .gallery-image {
-      transform: scale(1.05);
-    }
-  </style>
+  <!-- Stil dosyası (varsa) -->
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-
+  <!-- Galeri konteyner -->
   <ul class="gallery"></ul>
 
   <!-- basicLightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js"></script>
+  
+  <!-- Kendi JS dosyan -->
   <script src="./gallery.js"></script>
-
 </body>
 </html>

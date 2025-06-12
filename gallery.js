@@ -1,92 +1,126 @@
-const galleryItems = [
+// 2 - Görüntü Dizisi
+const images = [
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/orchids-4202820__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/14/16/43/orchids-4202820_1280.jpg',
-    description: 'Hokkaido Flower',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/14/16/43/orchids-4202820__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/14/16/43/orchids-4202820_1280.jpg",
+    description: "Hokkaido Flower",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg',
-    description: 'Container Haulage Freight',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/14/22/05/container-4203677_1280.jpg",
+    description: "Container Haulage Freight",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg',
-    description: 'Aerial Beach View',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/16/09/47/beach-4206785_1280.jpg",
+    description: "Aerial Beach View",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg',
-    description: 'Flower Blooms',
+    preview:
+      "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2016/11/18/16/19/flowers-1835619_1280.jpg",
+    description: "Flower Blooms",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2018/09/13/10/37/mountains-3674334__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2018/09/13/10/37/mountains-3674334_1280.jpg',
-    description: 'Alpine Mountains',
+    preview:
+      "https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2018/09/13/10/36/mountains-3674334_1280.jpg",
+    description: "Alpine Mountains",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg',
-    description: 'Mountain Lake Sailing',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg",
+    description: "Mountain Lake Sailing",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/16/23/04/landscape-4208571_1280.jpg',
-    description: 'Landscape Sunset',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/17/09/27/the-alps-4209272_1280.jpg",
+    description: "Alpine Spring Meadows",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/17/09/21/landscape-4209263__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/17/09/21/landscape-4209263_1280.jpg',
-    description: 'Lush Green Hills',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg",
+    description: "Nature Landscape",
   },
   {
-    preview: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255__340.jpg',
-    original: 'https://cdn.pixabay.com/photo/2019/05/16/21/10/landscape-4208255_1280.jpg',
-    description: 'Calm River View',
+    preview:
+      "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843__340.jpg",
+    original:
+      "https://cdn.pixabay.com/photo/2019/05/17/04/35/lighthouse-4208843_1280.jpg",
+    description: "Lighthouse Coast Sea",
   },
 ];
 
+// 3 - Galeri öğelerini oluşturma
+const galleryContainer = document.querySelector(".gallery");
 
-
-const gallery = document.querySelector('.gallery');
-
-const markup = galleryItems
-  .map(
-    ({ preview, original, description }) => `
+// HTML'i hazırlayan fonksiyon
+function createGalleryItems(images) {
+  return images
+    .map(
+      ({ preview, original, description }) => `
     <li class="gallery-item">
       <a class="gallery-link" href="${original}">
-        <img
-          class="gallery-image"
-          src="${preview}"
-          data-source="${original}"
-          alt="${description}"
+        <img 
+          class="gallery-image" 
+          src="${preview}" 
+          data-source="${original}" 
+          alt="${description}" 
         />
       </a>
     </li>
   `
-  )
-  .join('');
+    )
+    .join("");
+}
 
-gallery.innerHTML = markup;
+// Galeriyi DOM'a ekle
+galleryContainer.innerHTML = createGalleryItems(images);
 
-gallery.addEventListener('click', event => {
+// 5 - Delegasyon ile tıklama olayını dinleme
+galleryContainer.addEventListener("click", (event) => {
   event.preventDefault();
 
-  if (event.target.nodeName !== 'IMG') return;
+  // Sadece resimse işlem yap
+  const clickedImage = event.target;
+  if (clickedImage.nodeName !== "IMG") return;
 
-  const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" width="800" height="600">
-  `);
+  // Büyük resmi al
+  const largeImageURL = clickedImage.dataset.source;
+
+  // Modal oluştur ve göster
+  const instance = basicLightbox.create(
+    `<img src="${largeImageURL}" alt="${clickedImage.alt}" />`,
+    {
+      onShow: (instance) => {
+        window.addEventListener("keydown", onEscKey);
+      },
+      onClose: (instance) => {
+        window.removeEventListener("keydown", onEscKey);
+      },
+    }
+  );
 
   instance.show();
 
-  const onEsc = e => {
-    if (e.key === 'Escape') {
+  // ESC ile modal kapatma
+  function onEscKey(evt) {
+    if (evt.key === "Escape") {
       instance.close();
-      window.removeEventListener('keydown', onEsc);
     }
-  };
-
-  window.addEventListener('keydown', onEsc);
+  }
 });
-
